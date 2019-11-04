@@ -95,14 +95,6 @@ def init_grammar(gram):
 	#As long as there's a change we update again
 	#(we chose to make _update_valuation available
 	#to any rule)
-	"""
-	while True:
-		test = True
-		for rule in gram.values():
-			test = test and next(rule._update_valuation())
-		if(test):
-			break;
-	"""
 	while not all(rule._update_valuation() for rule in gram.values()):
 		pass
 	for name,rule in gram.items() :
